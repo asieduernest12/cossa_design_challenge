@@ -27,4 +27,8 @@ class User extends Authenticatable
     public function vote(){
       return $this->hasOne('App\Vote','voter_id');
     }
+
+    public function designEntries(){
+      return $this->belongsToMany('App\DesignEntry','votes','voter_id','design_entry_id');
+    }
 }

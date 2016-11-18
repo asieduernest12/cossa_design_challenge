@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Vote;
+use App\User;
+use App\DesignEntry;
 
 class VoteController extends Controller
 {
@@ -39,7 +41,19 @@ class VoteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //associate vote with user
+        $user = User::where('student_id',$request->input('student_id'))->get()->first();
+
+        //find design_entry
+        $design_entry = DesignEntry::find($request->input('ballot')['id']);
+
+        // $user->designEntries()->attach($design_entry);
+        // $design_entry->voters->attach($user);
+        $design_entry->voters()->attach($user);
+        // return abort(403,);
+        return response()->json($user);
+
+
     }
 
     /**

@@ -20,14 +20,14 @@ class CreateDesignEntriesTable extends Migration
             $table->string('phone')->nullable();
             $table->longText('description')->nullable();
             $table->string('src_front');
-            $table->string('filename-front');
-            $table->string('address-front');
+            $table->string('filename_front');
+            $table->string('address_front');
             $table->string('src_side');
-            $table->string('filename-side');
-            $table->string('address-side');
+            $table->string('filename_side');
+            $table->string('address_side');
             $table->string('src_back');
-            $table->string('filename-back');
-            $table->string('address-back');
+            $table->string('filename_back');
+            $table->string('address_back');
         });
     }
 

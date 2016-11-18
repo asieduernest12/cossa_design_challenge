@@ -15,7 +15,7 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
     return [
         'name' => $faker->name,
         'email' => $faker->safeEmail,
-        'school_id' => '214IT'.$faker->firstName('male'),
+        'student_id' => '214IT'.$faker->firstName('male'),
         // 'password' => bcrypt(str_random(10)),
         // 'remember_token' => str_random(10),
     ];
@@ -27,9 +27,9 @@ $factory->define(App\DesignEntry::class,function(Faker\Generator $faker){
     'email' => $faker->safeEmail(),
     'phone' => $faker->phoneNumber(),
     'description' => $faker->sentence(3),
-    'src_back' => $faker->imageUrl( 640, 480),
-    'src_front' => $faker->imageUrl( 640, 480),
-    'src_side' => $faker->imageUrl( 640, 480),
+    'src_back' => 'http://localhost:8001/tm-img-01.jpg',
+    'src_front' => 'http://localhost:8001/tm-img-01.jpg',
+    'src_side' => 'http://localhost:8001/tm-img-01.jpg',
   ];
 });
 

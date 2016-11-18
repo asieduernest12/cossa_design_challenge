@@ -30,13 +30,14 @@ Route::group(['middleware' => ['web']], function () {
     //
 });
 
-Route::group(['middleware' => 'web'], function () {
-    Route::auth();
-
-    Route::get('/home', 'HomeController@index');
-});
+// Route::group(['middleware' => 'web'], function () {
+//     Route::auth();
+//
+//     Route::get('/home', 'HomeController@index');
+// });
 
 Route::group([],function(){
   Route::resource('design_entry','DesignEntryController');
   Route::resource('vote','VoteController');
+  Route::resource('voter','VoterController');
 });

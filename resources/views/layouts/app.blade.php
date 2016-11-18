@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app='cossa_dc' ng-controller='entriesCtrl'>
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,6 +14,9 @@
     <!-- Styles -->
     <link rel="stylesheet" href="{{asset('css/styles.css')}}" media="screen" title="no title">
     <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}" media="screen" title="no title">
+
+    <link rel="stylesheet" href="{{asset('sweet-alert/sweet-alert.min.css')}}" media="screen" title="no title">
+    <!-- <link rel="{{asset('css/magnific-popup.css')}}" href="/css/master.css" media="screen" title="no title"> -->
     {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
 
     <style>
@@ -27,7 +30,7 @@
     </style>
 </head>
 <body id="app-layout">
-    <nav class="navbar navbar-static-top">
+    <nav class="navbar navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
 
@@ -37,6 +40,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
+                    <span class="fa fa-arrow-down"></span>
                 </button>
 
                 <!-- Branding Image -->
@@ -48,13 +52,14 @@
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
-                    <li><a href="{{ url('/home') }}">Home</a></li>
+                    <li><a href="{{ url('/') }}">Home</a></li>
                 </ul>
 
                 <!-- Right Side Of Navbar -->
                 <ul class="nav navbar-nav navbar-right">
                     <!-- Authentication Links -->
-                            <li><a href=""><i class="fa fa-btn fa-thumb"></i>Cast Vote</a></li>
+                            <li><a onclick="$('#verifyVoterModal').modal('show')"><i class="fa fa-btn fa-thumb"></i>Cast Vote</a></li>
+                            <li><a onclick='$("#submitEntryModal").modal("show")'>Submit a design</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -67,6 +72,39 @@
     <!-- JavaScripts -->
     <script src="{{asset('js/jquery.min.js')}}"></script>
     <script src="{{asset('js/bootstrap.min.js')}}"></script>
+    <!-- sweet alerts -->
+    <script src="{{asset('sweet-alert/sweet-alert.init.js')}}" charset="utf-8"></script>
+    <script src="{{asset('sweet-alert/sweet-alert.min.js')}}" charset="utf-8"></script>
+    <script src="{{asset('js/jquery.magnific-popup.min.js')}}" charset="utf-8"></script>
+
+
+    <script type="text/javascript" src="{{asset('js/angular.js')}}"></script>
+    <script type="text/javascript" src="{{asset('js/angular-ui-router.js')}}"></script>
+    <script type="text/javascript" src="{{asset('js/angular-resource.min.js')}}"></script>
+    <script type="text/javascript" src="{{asset('js/app.js')}}"></script>
     {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
+
+    <script type="text/javascript">
+    $(document).ready(function() {
+	$('.popup-gallery').magnificPopup({
+		delegate: 'a',
+		type: 'image',
+		tLoading: 'Loading image #%curr%...',
+		mainClass: 'mfp-img-mobile',
+		gallery: {
+			enabled: true,
+			navigateByImgClick: true,
+			preload: [0,1] // Will preload 0 - before current, and 1 after the current image
+		},
+		image: {
+			tError: '<a href="%url%">The image #%curr%</a> could not be loaded.',
+			titleSrc: function(item) {
+				return item.el.attr('title') + '<small>by Marsel Van Oosten</small>';
+			}
+		}
+	});
+});
+
+    </script>
 </body>
 </html>
