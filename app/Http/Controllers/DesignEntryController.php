@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\DesignEntry;
 
 class DesignEntryController extends Controller
 {
@@ -17,6 +18,7 @@ class DesignEntryController extends Controller
     public function index()
     {
         //
+        return response()->json(DesignEntry::all());
     }
 
     /**
@@ -49,6 +51,7 @@ class DesignEntryController extends Controller
     public function show($id)
     {
         //
+        return response()->json(DesignEntry::with('votes')->find($id));
     }
 
     /**

@@ -35,3 +35,8 @@ Route::group(['middleware' => 'web'], function () {
 
     Route::get('/home', 'HomeController@index');
 });
+
+Route::group([],function(){
+  Route::resource('design_entry','DesignEntryController');
+  Route::resource('vote','VoteController');
+});
