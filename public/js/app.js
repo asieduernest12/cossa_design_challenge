@@ -56,7 +56,7 @@ cossa_dc.controller('entriesCtrl',function(API_RESOURCE,$scope){
     API_RESOURCE.entry.query(function(response){
       $scope.entries = response;
     },function(err){
-      // swal('Failed to connect to server','Please check the network connection and try again','error');
+      swal('Failed to connect to server','Please check the network connection and try again','error');
     })
   }
 

@@ -12,8 +12,8 @@
     <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700" rel='stylesheet' type='text/css'>
 
     <!-- Styles -->
-    <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}" media="screen" title="no title">
     <link rel="stylesheet" href="{{asset('css/styles.css')}}" media="screen" title="no title">
+    <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}" media="screen" title="no title">
     {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
 
     <style>
