@@ -103,18 +103,15 @@ cossa_dc.controller('entriesCtrl',function(API_RESOURCE,$filter,$scope){
 
   initEntries();
 
-  $scope.popup = function(obj){
-    $(document).ready(function() {
-    $(obj).magnificPopup({type:'image'});
-    });
-  }
 
   function magPop(){
-    $('.parent-container').magnificPopup({
-      delegate: 'a', // child items selector, by clicking on it popup will open
-      type: 'image',
-      gallery: {enabled:true}
-      // other options
+    $('.parent-container').each(function(){
+      $(this).magnificPopup({
+        delegate: 'a', // child items selector, by clicking on it popup will open
+        type: 'image',
+        gallery: {enabled:true}
+        // other options
+      });
     });
   }
 
@@ -199,7 +196,18 @@ cossa_dc.controller('entriesCtrl',function(API_RESOURCE,$filter,$scope){
     },function(err){
       swal('Voting failed','','error');
       $('#voteOptionModal').modal('show');
-    })
+    });
+  }
+
+  $scope.loadGallery = function(last){
+    if(last){
+      magPop();
+    }
+  }
+
+  $scope.startGalleryThroughClick = function(index){
+
+    $('.gallery-'+index + ' >a').eq(0).trigger('click');
   }
 
 });

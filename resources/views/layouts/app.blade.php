@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html> -->
 <html lang="en" ng-app='cossa_dc' ng-controller='entriesCtrl'>
 <head>
     <meta charset="utf-8">
@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}" media="screen" title="no title">
 
     <link rel="stylesheet" href="{{asset('sweet-alert/sweet-alert.min.css')}}" media="screen" title="no title">
-    <!-- <link rel="{{asset('css/magnific-popup.css')}}" href="/css/master.css" media="screen" title="no title"> -->
+    <link rel="stylesheet" href="{{asset('css/magnific-popup.css')}}" media="screen" title="no title">
     {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
 
     <style>
@@ -69,6 +69,19 @@
 
     @yield('content')
 
+    <div class="row">
+      <!-- technologies -->
+      <center>
+        <img src="https://gauravbehere.files.wordpress.com/2014/11/angularlogo-300x300.png?w=300&h=300&crop=1" class='col-md-4 col-xs-4 img img-responsive' alt="" />
+        <img src="http://smileyhappycoder.co.uk/wp-content/uploads/2014/12/laravel-logo-300x300.png" class='col-md-4 col-xs-4 img img-responsive' alt="" />
+        <img src="http://www.webandcow.com/img/photos/bootstrap_illustration.png" class='col-md-4 col-xs-4 img img-responsive' alt="" />
+      </center>
+    </div>
+
+    <footer class="footer container-fluid" >
+				<div class="navbar navbar-static-bottom navbar-default"><span><center style="color: black;font-family: arieal;font-size: 2.1em;">Malleable [ IcaSoft ]</center></span></div>
+			</footer>
+
     <!-- JavaScripts -->
     <script src="{{asset('js/jquery.min.js')}}"></script>
     <script src="{{asset('js/bootstrap.min.js')}}"></script>
@@ -84,27 +97,6 @@
     <script type="text/javascript" src="{{asset('js/app.js')}}"></script>
     {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
 
-    <script type="text/javascript">
-    $(document).ready(function() {
-	$('.popup-gallery').magnificPopup({
-		delegate: 'a',
-		type: 'image',
-		tLoading: 'Loading image #%curr%...',
-		mainClass: 'mfp-img-mobile',
-		gallery: {
-			enabled: true,
-			navigateByImgClick: true,
-			preload: [0,1] // Will preload 0 - before current, and 1 after the current image
-		},
-		image: {
-			tError: '<a href="%url%">The image #%curr%</a> could not be loaded.',
-			titleSrc: function(item) {
-				return item.el.attr('title') + '<small>by Marsel Van Oosten</small>';
-			}
-		}
-	});
-});
 
-    </script>
 </body>
 </html>

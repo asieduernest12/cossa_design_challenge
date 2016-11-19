@@ -9,6 +9,10 @@ use App\Http\Controllers\Controller;
 use App\DesignEntry;
 use Illuminate\Support\Facades\Storage;
 use App\Voter;
+// use Intervention\Image\Image as Image;
+use Intervention\Image\ImageManagerStatic as Image;
+// use Intervention\Image\Facades\Image;
+// use Intervention\Image\Facades\Image;
 
 class DesignEntryController extends Controller
 {
@@ -63,6 +67,7 @@ class DesignEntryController extends Controller
           $path_back = $request->file('back')->move($location,$back_filename);
           // return response()->json([$path_front,$path_back,$path_side]);
 
+
           //now we insert vals into the db
           $nEntry = new DesignEntry();
           $nEntry->designer = $request->input('designer');
@@ -78,6 +83,12 @@ class DesignEntryController extends Controller
           $nEntry->src_back = asset('storage/'.$back_filename);
           $nEntry->filename_back = $back_filename;
           $nEntry->address_back = $path_back;
+
+          //resize Image
+          $heigth = 600; $width=800;
+          Image::make($nEntry->address_front)->resize($width,$heigth)->save($nEntry->address_front);
+          Image::make($nEntry->address_back)->resize($width,$heigth)->save($nEntry->address_back);
+          Image::make($nEntry->address_side)->resize($width,$heigth)->save($nEntry->address_side);
 
           $nEntry->save();
 
@@ -136,5 +147,40 @@ class DesignEntryController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function resizeAll(){
+      //load all entries and resize images
+
+
+      //load File
+      $front=0; $back=0;$side=0;
+      $width = 800; $heigth = 600;
+      foreach (DesignEntry::all() as $de) {
+
+        printf('===============Found: front: str%s find:%s Back: str%s  find%s   side: str %s  find%s',
+        strlen($de->address_front) , Storage::exists($de->address_front),
+        strlen($de->address_back) ,Storage::exists($de->address_back),
+        strlen($de->address_side) ,Storage::exists($de->address_side));
+
+        if( strlen($de->address_front)  ){
+          Image::make($de->address_front)->resize($width,$heigth)->save($de->address_front);
+          $front++;
+        }
+
+        if(strlen($de->address_back)){
+          Image::make($de->address_back)->resize($width,$heigth)->save($de->address_back);
+          $back++;
+        }
+
+        if(strlen($de->address_side)){
+          Image::make($de->address_side)->resize($width,$heigth)->save($de->address_side);
+          $side++;
+        }
+
+
+      }
+
+      return response()->json(['front'=>$front,'back'=>$back,'side'=>$side]);
     }
 }

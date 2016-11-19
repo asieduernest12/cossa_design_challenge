@@ -10,53 +10,55 @@
         </div>
         <div class="modal-body">
 
-
+          <legend>Designer Information</legend>
           <div class="form-group">
             <label for="" class="col-md-3">Designer name*</label>
             <div class="col-md-9">
-              <input type="text" name="name"  ng-model='nEntry.designer' class="form-control" required ng-required='true'>
+              <input type="text" name="name"  ng-model='nEntry.designer' class="form-control" required ng-required='true' placeholder="Enter your full name">
             </div>
           </div>
 
           <div class="form-group">
             <label for="" class="col-md-3">Designer email*</label>
             <div class="col-md-9">
-              <input type="text" name="email"  ng-model='nEntry.email' class="form-control" required ng-required='true'>
+              <input type="text" name="email"  ng-model='nEntry.email' class="form-control" required ng-required='true' placeholder="Provide email">
             </div>
           </div>
 
           <div class="form-group">
             <label for="" class="col-md-3">Designer phone</label>
             <div class="col-md-9">
-              <input type="text" name="name" ng-model='nEntry.phone' class="form-control" >
+              <input type="telephone" name="name" ng-model='nEntry.phone' class="form-control" placeholder="Provide a phone number">
             </div>
           </div>
 
           <div class="form-group">
             <label for="" class="col-md-3">Description</label>
             <div class="col-md-9">
-              <textarea name="name" rows="3" cols="40" class="form-control" ng-model='nEntry.description'></textarea>
+              <textarea name="name" rows="3" cols="40" class="form-control" ng-model='nEntry.description' placeholder="Description of purpose of design, and inspiration, not required though"></textarea>
             </div>
           </div>
 
+          <legend>Images</legend>
+          <h4>Images will be resized to 800 x 600. Its prefered submitted images are already 800 x 600</h4>
           <div class="form-group">
             <label for="" class="col-md-3">Front view*</label>
             <div class="col-md-9">
-              <input type="file" accept="image/*" name='front' onchange="angular.element(this).scope().uploadedFile(this,'front')" class="form-control" required ng-required='true'>
+              <input type="file" accept="image/*" name='front' onchange="angular.element(this).scope().uploadedFile(this,'front')" class="form-control" required ng-required='true' title="Please provide image that is 800 x 600">
             </div>
           </div>
 
           <div class="form-group">
             <label for="" class="col-md-3">Back view*</label>
             <div class="col-md-9">
-              <input type="file" accept="image/*" name="back" onchange="angular.element(this).scope().uploadedFile(this,'back')" class="form-control" required ng-required='true'>
+              <input type="file" accept="image/*" name="back" onchange="angular.element(this).scope().uploadedFile(this,'back')" class="form-control" required ng-required='true' title="Please provide image that is 800 x 600">
             </div>
           </div>
 
           <div class="form-group">
             <label for="" class="col-md-3">Side view*</label>
             <div class="col-md-9">
-              <input type="file" accept="image/*" name="side" onchange="angular.element(this).scope().uploadedFile(this,'side')" class="form-control" required ng-required='true'>
+              <input type="file" accept="image/*" name="side" onchange="angular.element(this).scope().uploadedFile(this,'side')" class="form-control" required ng-required='true' title="Please provide image that is 800 x 600">
             </div>
           </div>
 
@@ -64,7 +66,7 @@
         </div>
         <!-- values here {{nEntry}} -->
         <div class="modal-footer">
-          <input type="submit" name="submit" value="Add Modal" class="btn btn-primary">
+          <input type="submit" name="submit" value="Submit entry" class="btn btn-primary">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
       </div>

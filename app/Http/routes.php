@@ -28,6 +28,9 @@ Route::get('/', function () {
 
 Route::group(['middleware' => ['web']], function () {
     //
+    Route::get('/',function(){
+      return view('welcome');
+    });
 });
 
 // Route::group(['middleware' => 'web'], function () {
@@ -37,7 +40,8 @@ Route::group(['middleware' => ['web']], function () {
 // });
 
 Route::group([],function(){
-  Route::resource('design_entry','DesignEntryController');
-  Route::resource('vote','VoteController');
-  Route::resource('voter','VoterController');
+  Route::resource('design_entry','DesignEntryController',['only' => ['store','index']]);
+  Route::resource('vote','VoteController',['only' => ['store']]);
+  Route::resource('voter','VoterController',['only' => ['show']]);
+  Route::get('resize','DesignEntryController@resizeAll');
 });
