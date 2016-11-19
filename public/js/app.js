@@ -88,7 +88,7 @@ cossa_dc.factory('API_RESOURCE',['$resource',function($resource){
   }]);
 
 
-cossa_dc.controller('entriesCtrl',function(API_RESOURCE,$filter,$scope){
+cossa_dc.controller('entriesCtrl',function(API_RESOURCE,$filter,$scope,$timeout){
   function initEntries(){
     API_RESOURCE.entry.query(function(response){
       $scope.entries = $filter('orderBy')(response,['-votes']);
@@ -210,4 +210,8 @@ cossa_dc.controller('entriesCtrl',function(API_RESOURCE,$filter,$scope){
     $('.gallery-'+index + ' >a').eq(0).trigger('click');
   }
 
+
+  setInterval(function(){
+    initEntries();
+  },180000);
 });
