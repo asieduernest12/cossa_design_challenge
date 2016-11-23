@@ -4,7 +4,7 @@
 
 
 
-<div class="container-fluid"  style="padding-top:90px">
+<div class="container-fluid"  style="padding-top:90px" >
     <div class="row">
         <div class="col-md-12 col-xs-12">
             <div class="panel panel-default">
@@ -14,7 +14,7 @@
 
                     <!-- use two col view per entery on large screen and one column view on small display-->
 
-                    <div class="col-md-4 col-xs-12 panel" ng-repeat='entry in entries' ng-init='loadGallery($last)'>
+                    <div class="col-md-4 col-xs-12 panel" ng-repeat='entry in entries' ng-init='loadGallery($last)' ng-cloack>
                       <!-- image, designer name and email -->
 
                       <div class="form-horizontal">

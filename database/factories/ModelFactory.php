@@ -27,9 +27,9 @@ $factory->define(App\DesignEntry::class,function(Faker\Generator $faker){
     'email' => $faker->safeEmail(),
     'phone' => $faker->phoneNumber(),
     'description' => $faker->sentence(3),
-    'src_back' => 'http://localhost:8001/tm-img-01.jpg',
-    'src_front' => 'http://localhost:8001/tm-img-01.jpg',
-    'src_side' => 'http://localhost:8001/tm-img-01.jpg',
+    'src_back' => $faker->imageUrl(800,600),
+    'src_front' => $faker->imageUrl(800,600),
+    'src_side' => $faker->imageUrl(800,600),
   ];
 });
 
