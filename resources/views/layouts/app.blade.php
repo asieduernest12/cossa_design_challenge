@@ -59,7 +59,7 @@
                 <ul class="nav navbar-nav navbar-right">
                     <!-- Authentication Links -->
                             <li><a onclick="$('#verifyVoterModal').modal('show')"><i class="fa fa-btn fa-thumb"></i>Cast Vote</a></li>
-                            <li><a onclick='$("#submitEntryModal").modal("show")'>Submit a design</a></li>
+                            <!-- <li><a onclick='$("#submitEntryModal").modal("show")'>Submit a design</a></li> -->
                         </ul>
                     </li>
                 </ul>
@@ -79,7 +79,7 @@
     </div>
 
     <footer class="footer container-fluid" >
-				<div class="navbar navbar-static-bottom navbar-default"><span><center style="color: black;font-family: arieal;font-size: 2.1em;" ><a href="mailto:asieduernest@yahoo.co.uk">Asare-Asiedu Ernest</a> [ IcaSoft ] [<a href="http://bluspark-it.com">"BluSpark-it"></a>]</center></span></div>
+				<div class="navbar navbar-static-bottom navbar-default"><span><center style="color: black;font-family: arieal;font-size: 2.1em;" ><a href="mailto:asieduernest@yahoo.co.uk">Asare-Asiedu Ernest</a> [ IcaSoft ] [<a href="http://bluspark-it.com">BluSpark-it</a>]</center></span></div>
 			</footer>
 
     <!-- JavaScripts -->
