@@ -1,7 +1,8 @@
 ## Cossa-Design-Challenge web app build using laravel
 
-#Creator Asare-Asiedu Ernest
-[GitHub](https://github.com/2a-ernest)
+## This is laravel based web application with angular front-end that allows students of the computer science students association (COSSA) of Valley View University to submit designs as part of a competition to choose a new T-shirt design
+
+Included is a voting module that allows students to cast their votes for their favourite design
 
 #Installation
 
